@@ -16,7 +16,8 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.6.4",
-    "kendo-ui": "kendo-ui-core#^2023.1.425+SP2"
+    "kendo-ui": "kendo-ui-core#^2023.1.425+SP2",
+    "lodash": "~3.10.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.6.4"

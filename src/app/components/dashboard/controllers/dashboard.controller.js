@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController($timeout, webDevTec, toastr) {
+  function DashboardController() {
     var vm = this;
 
     vm.awesomeThings = [];

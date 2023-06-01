@@ -1,0 +1,42 @@
+<div class="container">
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+  <div ng-if="!todoCtrl.isSelectTodo">
+    <div class="card"
+         style="margin-bottom: 10px;"
+         ng-repeat="todo in todoCtrl.todos"
+         ng-click="todoCtrl.selectTodo(todo.id)">
+      <div class="card-header">
+        {{todo.title}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{todo.content}}</h5>
+        <p class="card-text">{{todo.updateDate}}</p>
+      </div>
+    </div>
+  </div>
+  <div ng-if="todoCtrl.isSelectTodo">
+    <button ng-click="todoCtrl.selectTodo(null)">목록</button>
+    <div class="card"
+         style="margin-bottom: 10px;">
+      <div class="card-header">
+        <input type="text" ng-model="todoCtrl.todo.title">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><input type="text" ng-model="todoCtrl.todo.content"></h5>
+        <p class="card-text">{{todoCtrl.todo.updateDate}}</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" ng-click="todoCtrl.updateTodo(todoCtrl.todo)">저장</button>
+  </div>
+  <div class="card text-bg-dark">
+    <img src="assets/images/lion.png" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+        This content is a little bit longer.</p>
+      <p class="card-text"><small>Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,13 @@
         url: '/dashboard',
         templateUrl: 'app/components/dashboard/views/dashboard.html',
         controller: 'DashboardController',
-        controllerAs: 'dashboard'
+        controllerAs: 'dashboardCtrl'
+      })
+      .state('todo', {
+        url: '/todo',
+        templateUrl: 'app/components/todo/views/main.html',
+        controller: 'TodoController',
+        controllerAs: 'todoCtrl'
       })
     ;
 

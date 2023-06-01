@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -11,7 +11,7 @@
       restrict: 'E',
       templateUrl: 'app/components/common/navbar/views/navbar.html',
       scope: {
-          creationDate: '='
+        creationDate: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -21,11 +21,32 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
+    function NavbarController(moment, $interval, $scope, $location, $log) {
       var vm = this;
+      vm.state = {
+        time: Date.now(),
+        type: (function () {
+          if ($location.$$path === '/') {
+            return 'home';
+          } else if ($location.$$path === '/dashboard') {
+            return 'dashboard';
+          } else {
+            return 'todo';
+          }
+        })()
+      }
 
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+      $interval(function () {
+        vm.state.time = Date.now();
+      }, 1000);
+
+      $scope.navChange = function (param) {
+        vm.state.type = param;
+      }
+
+      $scope.test = function () {
+        alert('이거222');
+      }
     }
   }
 

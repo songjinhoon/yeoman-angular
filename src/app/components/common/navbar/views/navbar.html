@@ -1,13 +1,15 @@
 <nav class="navbar">
   <a href="https://github.com/Swiip/generator-gulp-angular">Gulp Angular</a>
-
   <ul>
-    <li ng-class="{active : '}"><a ng-href="#">Home</a></li>
-    <li ng-class="{active : type == 'dashboard'}"><a ng-href="#!/dashboard" ng-click="test()">Dashboard</a></li>
-    <li ng-class="{active : type == 'contact'}"><a ng-href="#">Contact</a></li>
+    <li ng-class="{active : vm.state.type == 'home'}" ng-click="navChange('home')"><a ng-href="#">Home</a></li>
+    <li ng-class="{active : vm.state.type == 'dashboard'}" ng-click="navChange('dashboard')"><a ng-href="#!/dashboard">Dashboard</a>
+    <li ng-class="{active : vm.state.type == 'todo'}" ng-click="navChange('todo')"><a ng-href="#!/todo">Todo</a></li>
+    </li>
   </ul>
-
-  <ul class="acme-navbar-text">
-    <li>Application was created {{ vm.relativeDate }}.</li>
+  <ul style="float: right; display: flex; justify-content: center; align-items: center;">
+    <li>
+      <button ng-click="test()">이벤트 버튼</button>
+    </li>
+    <li style="float: right"><a>{{ vm.state.time | date: 'yyyy-MM-dd HH:mm:ss' }}</a></li>
   </ul>
 </nav>
