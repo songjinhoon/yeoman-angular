@@ -3,7 +3,7 @@
 
   angular
     .module('yeomanAngular')
-    .service('TodoModel', function (moment) {
+    .service('TodoService', function (moment) {
       var service = this;
       service.getAll = getAll;
       service.get = get;
@@ -29,11 +29,14 @@
 
       var todos = [];
       for (var i = 0; i < 100; i++) {
+        var statusType = ['WAIT', 'START', 'COMPLETE'];
         todos.push({
           id: i,
           title: '제목' + i,
           content: '내용',
-          updateDate: moment().format('YYYY-MM-DD HH:mm:ss')
+          status: statusType[Math.floor(Math.random() * 3)],
+          updateDate: moment().format('YYYY-MM-DD HH:mm:ss'),
+          userId: i < 50 ? '10000' : '10001'
         });
       }
 

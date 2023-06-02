@@ -1,0 +1,66 @@
+<div class="container">
+  <div style="display: flex; justify-content: center; margin-top: 30%;">
+    <div id="loginBox">
+      <div id="loginBoxTitle">CodeZone Login</div>
+      <div id="inputBox">
+        <div class="input-form-box">
+          <span>아이디 </span>
+          <input ng-model="authCtrl.username" type="text" class="form-control">
+        </div>
+        <div class="input-form-box">
+          <span>비밀번호 </span>
+          <input ng-model="authCtrl.password" type="password" class="form-control">
+        </div>
+        <div class="button-login-box">
+          <button ng-click="authCtrl.login()" type="button" class="btn btn-primary btn-xs" style="width:100%">로그인
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #loginBox {
+    width: 300px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .input-form-box {
+    border: 0px solid #ff0000;
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  .input-form-box > span {
+    display: block;
+    text-align: left;
+    padding-top: 5px;
+    min-width: 100px;
+  }
+
+  .button-login-box {
+    margin: 10px 0;
+  }
+
+  #loginBoxTitle {
+    color: #000000;
+    font-weight: bold;
+    font-size: 32px;
+    text-transform: uppercase;
+    padding: 5px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #270a09, #8ca6ce);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #inputBox {
+    margin: 10px;
+  }
+
+  #inputBox button {
+    padding: 3px 5px;
+  }
+</style>

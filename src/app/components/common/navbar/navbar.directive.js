@@ -21,14 +21,12 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment, $interval, $scope, $location, $log) {
+    function NavbarController(moment, $interval, $scope, $location, MoveService, AuthService) {
       var vm = this;
       vm.state = {
         time: Date.now(),
         type: (function () {
-          if ($location.$$path === '/') {
-            return 'home';
-          } else if ($location.$$path === '/dashboard') {
+          if ($location.$$path === '/dashboard') {
             return 'dashboard';
           } else {
             return 'todo';
@@ -44,9 +42,11 @@
         vm.state.type = param;
       }
 
-      $scope.test = function () {
-        alert('이거222');
+      $scope.logout = function () {
+        AuthService.logout();
+        MoveService.move();
       }
+
     }
   }
 

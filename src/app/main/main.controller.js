@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -6,8 +6,9 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
-    var vm = this;
+  function MainController($timeout, webDevTec, toastr, MoveService) {
+    MoveService.move();
+    /*
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
@@ -34,6 +35,6 @@
       angular.forEach(vm.awesomeThings, function(awesomeThing) {
         awesomeThing.rank = Math.random();
       });
-    }
+    }*/
   }
 })();

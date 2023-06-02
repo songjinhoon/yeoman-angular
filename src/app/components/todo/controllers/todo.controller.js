@@ -5,9 +5,9 @@
     .module('yeomanAngular')
     .controller('TodoController', TodoController);
 
-  function TodoController(TodoModel, $scope, $log, _) {
+  function TodoController(TodoService, $scope, $log, _) {
     var vm = this;
-    vm.todos = TodoModel.getAll();
+    vm.todos = TodoService.getAll();
     vm.todo = {};
     vm.isSelectTodo = false;
     vm.selectTodo = selectTodo;
@@ -34,12 +34,12 @@
       if (id == null) {
         vm.todo = {};
       } else {
-        vm.todo = TodoModel.get(id);
+        vm.todo = TodoService.get(id);
       }
     }
 
     function updateTodo(todo) {
-      var value = TodoModel.update(todo);
+      var value = TodoService.update(todo);
       alert('UPDATE SUCCESS!');
       for (var i = 0; i < vm.todos.length; i++) {
         if (vm.todos[i].id === value.id) {

@@ -6,11 +6,17 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController() {
+  function DashboardController(TodoService, _) {
     var vm = this;
+    initialize();
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1684818455476;
+    function initialize() {
+      var datas = TodoService.getAll();
+      vm.todos = _.filter(datas, {'userId': '10000'});
+      vm.waitTodos = _.filter(datas, {'userId': '10000', 'status': 'WAIT'});
+      vm.startTodos = _.filter(datas, {'userId': '10000', 'status': 'START'});
+      vm.completeTodos = _.filter(datas, {'userId': '10000', 'status': 'COMPLETE'});
+    }
+
   }
 })();
